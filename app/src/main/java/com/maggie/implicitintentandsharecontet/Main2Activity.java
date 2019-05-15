@@ -16,8 +16,6 @@ public class Main2Activity extends AppCompatActivity {
         //用getIntent()取得putExtra的資料
         Intent in=getIntent();
         String str=in.getStringExtra("msg");
-        //要收action_send的分享文字，這邊要放Intent.EXTRA_TEXT
-        //String str=in.getStringExtra(Intent.EXTRA_TEXT);
         TextView text=findViewById(R.id.textResult);
         text.setText(str);
     }

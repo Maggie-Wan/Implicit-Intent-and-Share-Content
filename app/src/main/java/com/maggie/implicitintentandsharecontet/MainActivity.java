@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
         //在其他app按分享時可以看到自己的app 並將檔案分享到自己的app上
         if (getIntent() != null && getIntent().getExtras() != null) {
+            //Intent.EXTRA_STREAM:
+            //URI holding a stream of data associated with the Intent, used with ACTION_SEND to supply the data being sent.
             String uri = getIntent().getExtras().get(Intent.EXTRA_STREAM).toString();
             mShowImage.setImageURI(Uri.parse(uri));
         }
@@ -37,11 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void share(View view) {
         Intent in=new Intent();
-        //setAction可以直接寫在new Intent()中，不用拉出來寫，如上面作法
         in.setAction(Intent.ACTION_SEND);
         //EXTRA_TEXT:A constant CharSequence that is associated with the Intent, used with ACTION_SEND to supply the literal data to be sent.
-        //可以查android developer:Standard Extra Data
-        //These are the current standard fields that can be used as extra data via putExtra(String, Bundle).
+        //https://www.tutorialspoint.com/android/android_intent_standard_extra_data.htm
         in.putExtra(Intent.EXTRA_TEXT,getResources().getString(R.string.share_content));
         in.setType("text/plain");
         startActivity(in);

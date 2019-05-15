@@ -16,11 +16,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
-
+                <!--定義分享的資料型態-->
                 <data android:mimeType="image/*" />
-                <!--如果是大家共用的ACTION就要用共用的名字，EX:ACTION_SEND，如果自己寫了一個APP也要能分享文字，
-                就要在Mainfest加上action android:name="ACTION_SEND"，當使用者使用分享文字功能時，自己的APP就會出現在可以選擇分享的APP清單上
-                -->
+                <!--如果自己寫了一個APP也要能分享就要在Manifest加上action android:name="ACTION_SEND"，
+                當使用者使用分享功能時，自己的APP就會出現在可以選擇分享的APP清單上-->
                 <action android:name="android.intent.action.SEND" />
             </intent-filter>
         </activity>
@@ -28,18 +27,11 @@
         <activity android:name=".Main2Activity">
             <!--隱性intent要先加intent-filter-->
             <intent-filter>
-
                 <!--有在mainfest中註冊這個action的actitvity都可以使用-->
                 <!--如果只是自己的程式要用，就可以自定義名稱，如下-->
                 <action android:name="sendMsg"/>
+                <!--用DEAFAULT就是代表聽到sendMsg時就會跳出來-->
                 <category android:name="android.intent.category.DEFAULT"/>
-                <!--<action android:name="android.intent.action.SEND"/>-->
-                <!--要使用ACTION_SEND不能直接把name="ACTION_SEND"，因為ACTION_SEND是一個字串，實際上要打android.intent.action.SEND-->
-                <!--<action android:name="android.intent.action.SEND"/>-->
-                <!--用DEAFAUL就是代表聽到action.test時就會跳出來-->
-                <!--<category android:name="android.intent.category.DEFAULT"/>-->
-                <!--要設定分享的資料型態-->
-                <!--<data android:mimeType="text/plain"/>-->
             </intent-filter>
         </activity>
     </application>
